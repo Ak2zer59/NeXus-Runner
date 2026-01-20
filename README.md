@@ -1,4 +1,4 @@
-# 🎮 Nexus Runner - Jeu Web Premium
+# 🎮 Nexus Runner
 
 Un jeu de course infini moderne et premium inspiré du jeu du dinosaure de Google Chrome, avec une expérience visuelle haut de gamme, des animations fluides et une interface soignée.
 
@@ -222,3 +222,4 @@ Inspiré du jeu du dinosaure de Google Chrome, avec une approche moderne et prem
 ---
 
 **Bon jeu ! 🎮✨**
+
