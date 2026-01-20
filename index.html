@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Runner - Premium Runner Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Canvas principal du jeu -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Overlay UI -->
+        <div class="ui-overlay">
+            <!-- HUD -->
+            <div class="hud">
+                <div class="score-display">
+                    <span class="score-label">Score</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="best-score-display">
+                    <span class="best-label">Meilleur</span>
+                    <span id="bestScore">0</span>
+                </div>
+                <div class="speed-indicator">
+                    <span class="speed-label">Vitesse</span>
+                    <div class="speed-bar">
+                        <div id="speedBar" class="speed-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Écran de démarrage -->
+            <div id="startScreen" class="screen start-screen active">
+                <div class="screen-content">
+                    <h1 class="game-title">Nexus Runner</h1>
+                    <p class="game-subtitle">Évitez les obstacles et survivez le plus longtemps possible</p>
+                    <div class="controls-hint">
+                        <div class="control-item">
+                            <kbd>Space</kbd> ou <kbd>↑</kbd> — Sauter
+                        </div>
+                        <div class="control-item">
+                            <kbd>↓</kbd> — Glisser
+                        </div>
+                        <div class="control-item">
+                            <kbd>P</kbd> — Pause
+                        </div>
+                    </div>
+                    <button id="startBtn" class="btn btn-primary">
+                        <span>Commencer</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Écran de pause -->
+            <div id="pauseScreen" class="screen pause-screen">
+                <div class="screen-content">
+                    <h2>Pause</h2>
+                    <div class="pause-stats">
+                        <div class="stat">
+                            <span class="stat-label">Score actuel</span>
+                            <span id="pauseScore" class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <button id="resumeBtn" class="btn btn-primary">Reprendre</button>
+                    <button id="restartBtn" class="btn btn-secondary">Recommencer</button>
+                </div>
+            </div>
+
+            <!-- Écran Game Over -->
+            <div id="gameOverScreen" class="screen game-over-screen">
+                <div class="screen-content">
+                    <h2>Game Over</h2>
+                    <div class="final-stats">
+                        <div class="stat">
+                            <span class="stat-label">Score</span>
+                            <span id="finalScore" class="stat-value">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Meilleur score</span>
+                            <span id="finalBestScore" class="stat-value">0</span>
+                        </div>
+                        <div class="stat highlight" id="newRecord" style="display: none;">
+                            <span class="stat-label">🎉 Nouveau record !</span>
+                        </div>
+                    </div>
+                    <button id="playAgainBtn" class="btn btn-primary">Rejouer</button>
+                </div>
+            </div>
+
+            <!-- Power-up indicator -->
+            <div id="powerUpIndicator" class="power-up-indicator">
+                <div class="power-up-icon"></div>
+                <div class="power-up-name"></div>
+                <div class="power-up-timer">
+                    <div class="timer-bar"></div>
+                </div>
+            </div>
+
+            <!-- Instructions mobiles -->
+            <div class="mobile-controls-hint">
+                <span>Appuyez pour sauter</span>
+            </div>
+        </div>
+
+        <!-- Bouton de toggle audio -->
+        <button id="audioToggle" class="audio-toggle" aria-label="Activer/désactiver le son">
+            <svg class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path id="audioMute" d="M19 9l-6 6m0-6l6 6" stroke-linecap="round" opacity="0"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
